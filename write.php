@@ -28,7 +28,7 @@ $password = 'password'; // tennisuserに設定したパスワード
 // try-catch->例外処理のための文
 try{
     $db = new PDO($dsn, $user, $password); // PDO=PHP Data Objects さまざまなデータベース(DBMS)を簡単に利用できるようにする、PHPの拡張機能
-    $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false); // ?
+    $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false); // 属性をセット(PDO::ATTR_EMULATE_PREPARES, SQLインジェクションの危険があるためfalseに指定する)
     // プリペアドステートメントを作成
     $stmt = $db->prepare("INSERT INTO bbs (name, title, body, date, pass) VALUES (:name, :title, :body, now(), :pass)"); // PDOインスタンスのメソッドを実行するための構文
     // INSERT文はテーブルに新しいレコードを追加するSQLの構文(bbsテーブルを追加)
@@ -37,12 +37,11 @@ try{
     // now() MySQLの持つ現在日時を表わす関数
 
     // パラメータを割り当て
-    $stmt->bindParam(':name', $name, PDO::PARAM_STR);
+    $stmt->bindParam(':name', $name, PDO::PARAM_STR); // PDO::PARAM_STR - 文字列データ型を定義
     $stmt->bindParam(':title', $title, PDO::PARAM_STR);
     $stmt->bindParam(':body', $body, PDO::PARAM_STR);
     $stmt->bindParam(':pass', $pass, PDO::PARAM_STR);
     // クエリの実行、プリペアドステートメントでクエリを組み立てて、executeで実行するというのが基本的な流れ
-
     $stmt->execute();
 
     // bbs.phpに戻る
