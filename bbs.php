@@ -55,6 +55,11 @@ try {
     <p>タイトル：<?php echo $title ?></p>
     <p><?php echo nl2br($row['body'], false) ?></p> <!-- 本文、改行コードを改行タグに変えて表示 -->
     <p><?php echo $row['date'] ?></p>
+    <form action="delete.php" method="post">
+        <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+        削除パスワード：<input type="password" name="pass">
+        <input type="submit" value="削除">
+    </form>
 <?php
     endwhile;
 
