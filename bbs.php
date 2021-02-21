@@ -53,7 +53,7 @@ try {
 ?>
     <p>名前：<?php echo $row['name'] ?></p>
     <p>タイトル：<?php echo $title ?></p>
-    <p><?php echo nl2br($row['body'], false) ?></p>
+    <p><?php echo nl2br($row['body'], false) ?></p> <!-- 本文、改行コードを改行タグに変えて表示 -->
     <p><?php echo $row['date'] ?></p>
 <?php
     endwhile;
@@ -61,7 +61,7 @@ try {
     // ページ数の表示
     try {
         // プリペアドステートメント作成
-        $stmt = $db->prepare("SELECT COUNT(*) FROM bbs");
+        $stmt = $db->prepare("SELECT COUNT(*) FROM bbs"); // SELECT COUNT(*)->カウントしたいカラム名で、値がNULLでないカラムの数をカウントできる(*)で取得した行数がわかる
         // クエリの実行
         $stmt->execute();
     } catch (PDOException $e){
@@ -69,9 +69,9 @@ try {
     }
 
     // コメントの件数を取得
-    $comments = $stmt->fetchColumn();
+    $comments = $stmt->fetchColumn(); // fetchColumnメソッドで最初のカラムの内容を取得、引数には何番目のカラムかを入力する
     // ページ数を計算
-    $max_page = ceil($comments / $num);
+    $max_page = ceil($comments / $num); // ceil(数値)->端数の切り上げ
     echo '<p>';
     for ($i = 1; $i <= $max_page; $i++){
         echo '<a href="bbs.php?page=' . $i . '">' . $i . '</a>&nbsp;';
