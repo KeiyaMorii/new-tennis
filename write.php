@@ -19,6 +19,8 @@ if (!preg_match("/^[0-9]{4}$/", $pass)){
     header('Location: bbs.php');
     exit();
 }
+// 名前をクッキーにセット
+setcookie('name', $name, time() + 60 * 60 * 24 * 30); // setcookie(クッキーの名前、保存する値、有効期限のタイムスタンプ)
 
 // データベースに接続
 $dsn = 'mysql:host=localhost;dbname=tennis;charset=utf8'; // DSNとはどのサーバにあるどんなデータベースを使うのかを指定した文字列のこと

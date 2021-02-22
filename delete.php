@@ -1,6 +1,6 @@
 <?php
     // データの受け取り
-    $id = intval($_POST['id']);
+    $id = intval($_POST['id']); // idを整数として取得する
     $pass = $_POST['pass'];
 
     // 必須項目チェック
