@@ -30,7 +30,7 @@ $password = 'password'; // tennisuserに設定したパスワード
 // try-catch->例外処理のための文
 try{
     $db = new PDO($dsn, $user, $password); // PDO=PHP Data Objects さまざまなデータベース(DBMS)を簡単に利用できるようにする、PHPの拡張機能
-    $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false); // 属性をセット(PDO::ATTR_EMULATE_PREPARES, SQLインジェクションの危険があるためfalseに指定する)
+    $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false); // setAttribute属性をセット(PDO::ATTR_EMULATE_PREPARES, SQLインジェクションの危険があるためfalseに指定する)
     // プリペアドステートメントを作成
     $stmt = $db->prepare("INSERT INTO bbs (name, title, body, date, pass) VALUES (:name, :title, :body, now(), :pass)"); // PDOインスタンスのメソッドを実行するための構文
     // INSERT文はテーブルに新しいレコードを追加するSQLの構文(bbsテーブルを追加)
