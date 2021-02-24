@@ -1,0 +1,4 @@
+INSERT INTO users (name, password) VALUES
+('yamada', sha1('yamadapass')),
+('tanaka', sha1('tanakapass')),
+('kikuchi', sha1('kikuchipass'));
