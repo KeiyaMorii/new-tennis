@@ -1,4 +1,5 @@
 <?php
+    include 'includes/login.php';
     // データの受け取り
     $id = intval($_POST['id']); // idを整数として取得する
     $pass = $_POST['pass'];

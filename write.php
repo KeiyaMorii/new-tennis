@@ -1,4 +1,5 @@
 <?php
+include 'includes/login.php';
 // POSTメソッドでデータの受け取り(bbs.phpから)
 $name = $_POST['name'];
 $title = $_POST['title'];

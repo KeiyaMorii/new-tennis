@@ -1,4 +1,5 @@
 <?php
+include 'includes/login.php';
 // 1ページに表示されるコメント数
 $num = 10; // 1ページに10件ずつ表示
 
