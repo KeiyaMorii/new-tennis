@@ -46,8 +46,9 @@ try {
         <textarea name="body"></textarea>
         <p>削除パスワード（数字４桁）：<input type="text" name="pass"></p>
         <p><input type="submit" value="書き込む"></p>
+        <input type="hidden" name="token" value="<?php echo sha1(session_id()); ?>">
     </form>
-    <hr /> <!-- ?? -->
+    <hr /> <!-- 水平線を出力 -->
 <?php
     while ($row = $stmt->fetch()): // fetchメソッドで結果セットから1レコードを取得して$rowに連想配列として代入
         $title = $row['title'] ? $row['title'] : '（無題）'; // 三項演算子(条件式 ? 式1 : 式2),条件式の結果がTRUEなら式1をFALSEなら式2を$titleに代入
@@ -60,6 +61,7 @@ try {
         <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
         削除パスワード：<input type="password" name="pass">
         <input type="submit" value="削除">
+        <input type="hidden" name="token" value="<?php echo sha1(session_id()); ?>">
     </form>
 <?php
     endwhile;
