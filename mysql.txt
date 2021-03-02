@@ -2,3 +2,22 @@ INSERT INTO users (name, password) VALUES
 ('yamada', sha1('yamadapass')),
 ('tanaka', sha1('tanakapass')),
 ('kikuchi', sha1('kikuchipass'));
+
+CREATE DATABASE tennis;
+
+USE tennis;
+
+CREATE TABLE bbs(
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    title VARCHAR(255),
+    body TEXT NOT NULL,
+    date DATETIME NOT NULL,
+    pass CHAR(4) NOT NULL
+)DEFAULT CHARACTER SET=utf8;
+
+GRANT ALL ON tennis.* to 'tennisuser'@'localhost'
+IDENTIFIED BY 'password';
+
+FLUSH PRIVILEGES;
+
