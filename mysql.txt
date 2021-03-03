@@ -21,3 +21,8 @@ IDENTIFIED BY 'password';
 
 FLUSH PRIVILEGES;
 
+mysql -u tennisuser -p
+
+USE tennis
+
+DESC bbs;
