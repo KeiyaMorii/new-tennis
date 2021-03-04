@@ -26,3 +26,11 @@ mysql -u tennisuser -p
 USE tennis
 
 DESC bbs;
+
+samurai
+
+insert into training1.users values (1001, '山田太郎', 18, '男', 'taro.yamada@aaa.com', '03-1111-1111', 170, 61),
+(1002, '鈴木花子', 24, '女', 'hanako.suzuki@bbb.com', '090-1234-5678', 155, 45),
+(1003, '田中次郎', 32, '男', 'jiro.tanaka@ccc.com', '05-2222-2222', 182, 89),
+(1004, '佐藤三郎', 47, '男', 'saburo.sato@ddd.com', '080-9876-5432', 193, 76),
+(1005, '侍桃子', 50, '女', 'momoko.samurai@eee.com', '08-3333-3333', 167, 58);
