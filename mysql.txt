@@ -34,3 +34,24 @@ insert into training1.users values (1001, '山田太郎', 18, '男', 'taro.yamad
 (1003, '田中次郎', 32, '男', 'jiro.tanaka@ccc.com', '05-2222-2222', 182, 89),
 (1004, '佐藤三郎', 47, '男', 'saburo.sato@ddd.com', '080-9876-5432', 193, 76),
 (1005, '侍桃子', 50, '女', 'momoko.samurai@eee.com', '08-3333-3333', 167, 58);
+
+training1 DBのusersテーブルの中からemailカラムのデータを取得
+select email from training1.users;
+
+training1 DBのusersテーブルの中からname,age,idカラムのデータを取得
+順序は自由に指定できる
+select name, age, id from training1.users;
+
+training1 DBのusersテーブルの中から全てのカラムのデータを取得
+select * from training1.users;
+
+演習
+select id, name, tel, email from training1.users;
+
+genderカラムの値＝男の条件式を満たすデータを全て取得
+select * from training1.users where gender='男';
+
+emailカラムの値='jiro.tanaka@ccc.com'の条件式を満たすデータのうち、name,email,telのカラムの値を取得
+select name, email, tel from training1.users where email='jiro.tanaka@ccc.com';
+
+select height % age from training1.users;
