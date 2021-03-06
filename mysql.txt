@@ -55,3 +55,23 @@ emailカラムの値='jiro.tanaka@ccc.com'の条件式を満たすデータの�
 select name, email, tel from training1.users where email='jiro.tanaka@ccc.com';
 
 select height % age from training1.users;
+
+比較演算子
+select 5 = 5, 5 <=> 8, 5 <> 8, 5 != 5;
+select 5 < 5, 5 <= 8, 5 > 8, 5 >= 5;
+select 5 between 2 and 10, 1 not between 2 and 10;
+select 5 is null, 5 is not null;
+select 5=6 is true, 10<3 is not true;
+select 5 in (2,4,6,8,10), 5 not in (2,4,6,8,10);
+論理積
+select 100 > 50, 10 < 5, 100 > 50 and 10 < 5;
+論理和
+select 100 > 50, 10 < 5, 100 > 50 or 10 < 5;
+排他的論理和
+select 100 > 50, 10 > 5, 100 > 50 xor 10 > 5;
+論理否定
+select 100 > 50, 10 < 5, not 100 > 50, ! 10 < 5;
+
+select * from training1.users where not age + weight > 120 or height > 190;
+演習
+select * from training1.users where 
