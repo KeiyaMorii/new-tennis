@@ -74,4 +74,8 @@ select 100 > 50, 10 < 5, not 100 > 50, ! 10 < 5;
 
 select * from training1.users where not age + weight > 120 or height > 190;
 演習
-select * from training1.users where 
+select * from training1.users where weight / ((height / 100) * (height /100)) between 20 and 22;
+並び替え・昇順[asc](値が大きくなる順に並ぶ)    asc省略しても昇順になる
+select id, name, height from training1.users order by height asc;
+降順[desc](値が小さくなる順に並ぶ)
+select id, name, height from training1.users order by height desc;
