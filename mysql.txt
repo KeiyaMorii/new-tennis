@@ -79,3 +79,39 @@ select * from training1.users where weight / ((height / 100) * (height /100)) be
 select id, name, height from training1.users order by height asc;
 降順[desc](値が小さくなる順に並ぶ)
 select id, name, height from training1.users order by height desc;
+2つのカラムを並び替える
+select * from training1.users order by gender desc, age asc;
+WHEREとの組み合わせ
+select * from training1.users where age >= 20 order by gender asc, age desc;
+演習
+select * from training1.users where height >= 160 order by weight asc;
+7章
+create table training1.transactions(id int, buyer varchar(20), item varchar(20), sales int, purchaseDate date);
+select * from training1.transactions;
+
+AND/OR AND または ORのいずれかを指定できる
+select * from training1.transactions where purchaseDate >= '2020-05-05' and (item='Beef' or item='pork');
+
+BETWEEN 範囲を指定
+select * from training1.transactions where purchaseDate between '2020-05-01' and '2020-05-08';
+
+IN 指定したリストに含まれるデータの抽出
+select * from training1.transactions where item in ('Coffee(S)', 'Coffee(M)', 'Coffee(L)');
+NOT IN 該当しないデータの抽出
+select * from training1.transactions where item not in ('Coffee(S)', 'Coffee(M)', 'Coffee(L)');
+
+LIKE 特定の文字列パターンに合致するデータを抽出 (%  任意の0文字以上の文字列, _  任意の1文字)
+select * from training1.transactions where item like 'Coffee%';
+
+LIMIT 抽出できるレコード数の上限を設定
+select * from training1.transactions limit 10;
+
+GROUP BY 特定のカラムの値を基準にグループ化してデータを抽出
+select buyer, sum(sales) from training1.transactions group by buyer;
+
+HAVING グループ化したデータに対してさらに条件を指定してデータを絞り込みたいとき
+select buyer, sum(sales) from training1.transactions group by buyer having sum(sales) >= 1500;
+
+演習
+select * from training1.transactions where item like '%ee%';
+select purchaseDate, sum(sales) from training1.transactions where item like '%ee%' group by purchaseDate having sum(sales) between 500 and 1500 order by purchaseDate desc;
