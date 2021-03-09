@@ -115,3 +115,31 @@ select buyer, sum(sales) from training1.transactions group by buyer having sum(s
 演習
 select * from training1.transactions where item like '%ee%';
 select purchaseDate, sum(sales) from training1.transactions where item like '%ee%' group by purchaseDate having sum(sales) between 500 and 1500 order by purchaseDate desc;
+
+8章  関数
+select sum(sales) from training1.transactions;
+
+COUNT 指定したカラムの行数を抽出
+select count(buyer) from training1.transactions;
+
+SUM 指定したカラムの値の合計を取得
+select item, sum(sales) from training1.transactions group by item order by sum(sales) desc;
+
+AVG 指定したカラムの平均値を抽出
+select buyer, avg(sales) from training1.transactions group by buyer order by avg(sales) asc;
+
+MAX,MIN 指定したカラムの値の最大値と最小値を抽出
+select max(sales), min(sales) from training1.transactions;
+
+演習
+select purchaseDate, avg(sales) from training1.transactions group by purchaseDate having avg(sales) >= 500;
+
+9章  応用演習
+create database training2;
+(1)create table training2.orders (id int, user varchar(20), item varchar(30), category varchar(20), price int, discount int,
+total int, cardType varchar(10), orderDate date);
+(2)select id, user, total from training2.orders;
+select * from training2.orders;
+(3)select * from training2.orders where category = 'サプリメント' or category = '衣類' order by price desc;
+(4)select * from training2.orders where total >= 5000 and orderDate between '2020-03-01' and '2020-03-31' and discount is not null;
+(5)select * from training2.orders where cardType in ('Visa', 'JCB', 'Amex') order by orderDate desc limit 15;
