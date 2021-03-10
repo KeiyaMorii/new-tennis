@@ -136,10 +136,14 @@ select purchaseDate, avg(sales) from training1.transactions group by purchaseDat
 
 9章  応用演習
 create database training2;
-(1)create table training2.orders (id int, user varchar(20), item varchar(30), category varchar(20), price int, discount int,
+(1) create table training2.orders (id int, user varchar(20), item varchar(30), category varchar(20), price int, discount int,
 total int, cardType varchar(10), orderDate date);
-(2)select id, user, total from training2.orders;
+(2) select id, user, total from training2.orders;
 select * from training2.orders;
-(3)select * from training2.orders where category = 'サプリメント' or category = '衣類' order by price desc;
-(4)select * from training2.orders where total >= 5000 and orderDate between '2020-03-01' and '2020-03-31' and discount is not null;
-(5)select * from training2.orders where cardType in ('Visa', 'JCB', 'Amex') order by orderDate desc limit 15;
+(3) select * from training2.orders where category = 'サプリメント' or category = '衣類' order by price desc;
+(4) select * from training2.orders where total >= 5000 and orderDate between '2020-03-01' and '2020-03-31' and discount is not null;
+(5) select * from training2.orders where cardType in ('Visa', 'JCB', 'Amex') order by orderDate desc limit 15;
+(6) select user, count(user) from training2.orders group by user having count(user) >= 10 order by count(user) asc;
+(7) select * from training2.orders where item like '%ビタミン%';
+(8) select category, sum(total) from training2.orders where orderDate between '2020-04-01' and '2020-04-30' group by category order by sum(total) desc;
+(9) select category, max(total), min(total) from training2.orders group by category having max(total) / min(total) > 2;
