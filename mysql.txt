@@ -29,6 +29,9 @@ DESC bbs;
 
 samurai
 
+データベース作成
+create database testdb;
+
 insert into training1.users values (1001, '山田太郎', 18, '男', 'taro.yamada@aaa.com', '03-1111-1111', 170, 61),
 (1002, '鈴木花子', 24, '女', 'hanako.suzuki@bbb.com', '090-1234-5678', 155, 45),
 (1003, '田中次郎', 32, '男', 'jiro.tanaka@ccc.com', '05-2222-2222', 182, 89),
